@@ -1,0 +1,52 @@
+.modal {
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+  
+    &-content {
+      position: relative;
+      background-color: rgba(255, 255, 255, 1);
+      padding: 100px 250px;
+      border-radius: 5px;
+      border:1px solid #d4d4d4;
+      z-index: 1;
+  
+      &__buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        gap: 20px;
+      }
+  
+      &__button {
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+  
+        &-delete {
+          background-color: rgb(197, 85, 85);
+          transition: 0.3s ease-in;
+          &:hover {
+            background-color: rgb(233, 19, 19);
+          }
+        }
+  
+        &-cancel {
+          background-color: rgb(226, 224, 224);
+          transition: 0.2s ease-in;
+  
+          &:hover {
+            background-color: rgb(204, 204, 204);
+          }
+        }
+      }
+    }
+  }
+    

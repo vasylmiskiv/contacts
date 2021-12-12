@@ -1,0 +1,16 @@
+.navbar {
+  background-color: #79eeda;
+  padding: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  &-brand {
+    text-decoration: none;
+    color: rgb(78, 77, 77);
+
+    &:hover {
+      color: rgb(0, 0, 0);
+    }
+  }
+}

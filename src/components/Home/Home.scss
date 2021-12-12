@@ -1,0 +1,99 @@
+.container {
+  width: 720px;
+  margin: 0 auto;
+}
+
+.add-contact-btn {
+  font-size: 16px;
+  position: absolute;
+  top: 70px;
+  right: 400px;
+  border: 1px solid #c0c0c0;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  background-color: rgb(78, 253, 107);
+  
+  &:hover {
+    background-color: rgb(65, 235, 164);
+  }
+}
+
+.contact {
+  margin-top: 80px;
+
+  &__list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #79eeda80;
+    cursor: pointer;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    transition: 0.3s;
+  
+    &:hover {
+      background-color: #5dc7b5be;
+    }
+
+    &-name {
+      font-weight: bold;
+    }
+
+    &-buttons {
+      display: flex;
+      gap: 20px;
+      height: 20%;
+    }
+
+    &-edit {
+      color:rgb(148, 189, 54);
+    
+      &:hover {
+        color:rgb(172, 236, 20);
+      }
+    }
+
+    &-delete {
+      color:rgb(189, 81, 54);
+    
+      &:hover {
+        color:rgb(245, 48, 48);
+      }
+    }
+
+    &-profile {
+      color:rgb(47, 204, 131);
+    
+      &:hover {
+        color:rgb(31, 231, 138);
+      }
+    }
+  }
+
+    &__inputs-list {
+      padding-left: 0;
+    }
+
+    &__inputs-item {
+      float: left;
+      width: 100px;
+      margin-left: 20px;
+      padding: 5px 0;
+      list-style-type: none;
+    }
+}
+
+.icon-btn {
+  transition: 0.3s;
+  cursor: pointer;
+}
+

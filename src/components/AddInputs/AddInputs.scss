@@ -1,0 +1,80 @@
+.add-inputs {
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  
+  &__toggle-btn {
+    margin-top: 50px;
+    font-size: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: rgb(73, 72, 72);
+    background-color: rgb(44, 207, 212);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+ 
+    &:hover {
+      background-color: rgb(31, 226, 233);
+      color:black
+    }    
+  }
+
+    &__cancel-btn {
+      margin-top: 50px;
+      background-color: #79eeda7a;
+      border: none;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #79eeda;
+      }
+    }
+
+    &__form {
+      margin-top: 20px;
+    }
+
+    &__group {
+      margin-top: 10px;
+    }
+
+    &__input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 3px;
+      outline: none;
+      background-color: #e9e9e9;
+      border: 1px solid rgb(201, 199, 199);
+
+      &:focus {
+        background-color: #fff;
+      }
+    }
+
+    &__cancel-icon {
+      box-sizing: border-box;
+      transition-duration: 1000ms;
+      font-size: 40px;
+      cursor: pointer;
+
+      &:hover {
+        transform: rotate(1turn);
+      }
+    }
+
+    &__submit {
+      width: 100%;
+      border: 1px solid #79eeda;
+      margin-top: 30px;
+      padding: 10px 30px;
+      border-radius: 5px;
+      outline: none;
+      background-color: #79eeda7a;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        background-color: #79eeda;
+      }
+    }
+}

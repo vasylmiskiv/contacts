@@ -1,0 +1,32 @@
+.add-contact {
+  &__input {
+    padding: 10px;
+    margin-top: 5px;
+    outline: none;
+    border: 1px solid #c0c0c0;
+
+    &:focus {
+      border: 1px solid rgb(207, 238, 31);
+    }
+  }
+
+  &__submit {
+    padding: 10px 60px;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #79eeda;
+    border: none;
+    border: 1px solid #79eeda;
+    border-radius: 5px;
+    transition: 0.3s;
+
+    &--off {
+      background-color: #79eeda7a;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.form-contact-group {
+  margin-top: 10px;
+}

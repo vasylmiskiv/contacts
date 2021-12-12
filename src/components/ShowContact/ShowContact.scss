@@ -1,0 +1,34 @@
+.show-contact {
+	display: flex;
+	justify-content: center;
+
+	&__profile {
+		font-size: 16px;
+		background-color: rgba(100, 102, 102, 0.11);
+		padding-left: 0;
+		border-radius: 5px;
+		list-style-type: none;
+	}
+
+	&__item {
+		margin: 5px 10px;
+		padding: 10px 200px;
+		background-color: rgba(27, 139, 190, 0.233);
+		transition: 0.3s ease-out;
+		cursor: pointer;
+		border-radius: 5px;
+		&:hover {
+			transform: scale(1.02);
+			background-color: rgba(21, 153, 214, 0.418);
+		}
+	}
+
+	&__name {
+		font-weight: 700;
+	}
+
+	&__value {
+		margin-top: 10px;
+		font-style: italic;
+	}
+}
