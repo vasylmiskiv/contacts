@@ -1,22 +1,19 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom';
 
-const ModalDeleteInput = ({id, modal, name, currentContact, setCurrentContact}) => {
+const ModalDeleteInput = ({ modal, name, currentContact }) => {
 
 const dispatch = useDispatch();
 
-const history = useHistory()
-
  const deleteInput = () => {
-   const newCurrentContact = {...currentContact}
-   delete newCurrentContact[name]
+   const newCurrentContact = {...currentContact};
+   delete newCurrentContact[name];
 
-    dispatch({type: 'DELETE_CONTACT_INPUT', payload: newCurrentContact})
-    modal(false)
+    dispatch({type: 'DELETE_CONTACT_INPUT', payload: newCurrentContact});
+    modal(false);
    }
 
-const handleClose = e => e.target.classList.contains('modal') && modal(false)
+const handleClose = e => e.target.classList.contains('modal') && modal(false);
 
   return (
     <div className="modal" onClick={(e) => handleClose(e)}>

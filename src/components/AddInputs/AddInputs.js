@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router';
+import { useParams } from 'react-router';
 import './AddInputs.scss'
 import { faTimes } from '@fortawesome/fontawesome-free-solid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,34 +10,32 @@ const AddInputs = () => {
     const [nameOfTheInput, setNameOfTheInput] = useState('');
     const [valueOfTheInput, setValueOfTheInput] = useState('');
 
-    const history = useHistory();
-
     const {id} = useParams();
 
     const dispatch = useDispatch();
 
-    const listOfContacts = useSelector(state => state)
+    const listOfContacts = useSelector(state => state);
 
     const toggleAdditionalInputs = () => {
-        setIsVisibleAdditionalInputs(isVisibleAdditionalInputs => !isVisibleAdditionalInputs)
+        setIsVisibleAdditionalInputs(isVisibleAdditionalInputs => !isVisibleAdditionalInputs);
     }
     
-    const currentContact = listOfContacts.find(contact => contact.id === id)
+    const currentContact = listOfContacts.find(contact => contact.id === id);
 
     const handleSubmit = (e) => {
-      e.preventDefault()
+      e.preventDefault();
 
       const updatedContact = {
         ...currentContact,
-        [nameOfTheInput]: valueOfTheInput
+        [nameOfTheInput]: valueOfTheInput,
       }
     
        try {
-        dispatch({type: 'ADD_CONTACT_INPUT', payload: updatedContact})
-        setNameOfTheInput('')
-        setValueOfTheInput('')
+        dispatch({type: 'ADD_CONTACT_INPUT', payload: updatedContact});
+        setNameOfTheInput('');
+        setValueOfTheInput('');
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     }
 

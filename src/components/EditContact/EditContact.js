@@ -7,47 +7,58 @@ import AddInputs from '../AddInputs/AddInputs';
 import './EditContact.scss'
 import ModalDeleteInput from '../../modals/ModalDeleteInput/ModalDeleteInput'
 
+import _ from 'lodash'
+
 import { faTrash, faUndo } from '@fortawesome/fontawesome-free-solid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const EditContact = () => {
-  let [currentContact, setCurrentContact] = useState({})
-  const [modal, setModal] = useState(false)
-  const [votedContactKey, setVotedContactKey] = useState('')
-  const [inputCache, setInputCache] = useState([])
+  let [currentContact, setCurrentContact] = useState({});
+  const [modal, setModal] = useState(false);
+  const [votedContactKey, setVotedContactKey] = useState('');
+  const [inputCache, setInputCache] = useState([]);
 
   const {id} = useParams();
 
-  const history = useHistory()
+  const history = useHistory();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const contactList = useSelector(state => state);
 
   useEffect(() => {
-    setCurrentContact(contactList.find(contact => contact.id === id))
+    setCurrentContact(contactList.find(contact => contact.id === id));
   }, [contactList, id])
 
   const voteCurrentContactKey = (name) => {
-    setModal(true)
-    setVotedContactKey(name)
+    setModal(true);
+    setVotedContactKey(name);
   }
 
   const submitInputs = (e) => {
-    e.preventDefault()
-
-    dispatch({type: 'UPDATE_CONTACT_INPUT', payload: currentContact})
-    history.push('/')
+    e.preventDefault();
+    dispatch({type: 'UPDATE_CONTACT_INPUT', payload: currentContact});
+    history.push('/');
   }
 
   const changeInput = (e) => {
-    setInputCache([...e.target.value])
     const newData = {...currentContact}
-    newData[e.target.name] = e.target.value
-    setCurrentContact(newData)
+    newData[e.target.name] = e.target.value;
+    setCurrentContact(newData);
   }
 
+  const saveInputValue = () => {
+    if (_.isEqual(inputCache[inputCache.length - 1], currentContact)) {
+      
+    } else {
+      setInputCache(prev => [...prev, currentContact]);
+    }
+  }
 
+  const handleUndo = () => {
+    setCurrentContact(inputCache[inputCache.length - 1]);
+    setInputCache(inputCache.slice(0, -1));
+  }
 
     return (
       <div className="container">
@@ -67,7 +78,8 @@ const EditContact = () => {
                           name={name} 
                           value={currentContact[name]} 
                           onChange={(e) => changeInput(e)}
-                          onFocus={(e) => setInputCache(e.target.value)}
+
+                          onFocus={(e) => saveInputValue(e)}
                           />
       
                       </label>
@@ -76,11 +88,7 @@ const EditContact = () => {
                         className="edit-contact__input-delete"
                         onClick={() => voteCurrentContactKey(name)}
                       />
-                      <FontAwesomeIcon 
-                        icon={faUndo} 
-                        className="edit-contact__input-undo"
-                        onClick={() => currentContact = inputCache.slice(0,-1)}
-                      />
+                      
                       { modal && (
                     <ModalDeleteInput
                       id={id}
@@ -89,7 +97,6 @@ const EditContact = () => {
                       currentContact={currentContact}
                     />
                     )}
-      
                     </div>
                   )    
                 )   
@@ -100,12 +107,24 @@ const EditContact = () => {
               <button type ="submit" className="edit-contact__button edit-contact__button-apply" >
                 Apply
               </button>
-              <button 
+              <button
+                type= "button" 
                 className="edit-contact__button edit-contact__button-cancel"
                 onClick={() => history.push('/')}
                 >
                 Cancel
               </button>
+                <button 
+                type= "button" className='edit-contact__button edit-contact__button-undo'
+                disabled={inputCache.length < 1}
+                onClick={() => handleUndo()}
+                >
+                <FontAwesomeIcon 
+                  icon={faUndo} 
+                  className="edit-contact__input-undo"
+                />
+                </button>
+
             </div>
             </form>
             <AddInputs/>

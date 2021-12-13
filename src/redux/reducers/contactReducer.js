@@ -27,7 +27,7 @@ const contactReducer = (state = initialState, action) => {
     case 'DELETE_CONTACT_INPUT':
       if (Object.keys(action.payload).length === 1) {
         const updatedState = state.filter(contact => contact.id !== action.payload.id)
-        state = updatedState
+        state = updatedState;
         return state;
       } else {
         const deletedInputState = state.map(contact => contact.id === action.payload.id 

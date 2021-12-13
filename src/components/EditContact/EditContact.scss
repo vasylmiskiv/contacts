@@ -48,17 +48,6 @@
         color: rgb(252, 11, 11);
       }
     }
-
-    &-undo {
-      margin-left: 20px;
-      color: rgb(145, 194, 47);
-      cursor: pointer;
-      transform: scale(1.2);
-
-      &:hover {
-        color: rgb(178, 255, 24);
-      }
-    }
   }
 
   &__buttons {
@@ -89,6 +78,13 @@
 
       &:hover {
         background-color: rgb(56, 206, 101);
+      }
+    }
+
+    &-undo {
+      background-color: rgba(83, 83, 172, 0.774);
+      &:hover {
+        background-color: rgba(41, 41, 206, 0.774);
       }
     }
   }

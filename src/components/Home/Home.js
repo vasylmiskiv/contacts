@@ -1,19 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.scss';
 import { useSelector } from 'react-redux';
 import Modal from '../../modals/ModalDeleteContact/ModalDeleteContact'
+import ModalGreeting from '../../modals/ModalGreeting/ModalGreeting';
 
 import { faEdit, faTrash, faPlus, faIdCard } from '@fortawesome/fontawesome-free-solid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Home = () => {
   const [modal, setModal] = useState(false);
+  const [greetingModal, setGreetingModal] = useState(true)
   const [currentId, setCurrentId] = useState('')
 
   const contactList = useSelector(state => state);
-
-  console.log(contactList)
   
   return (
     <>
@@ -36,7 +36,7 @@ const Home = () => {
                       const [name, value] = input;
                       return (
                         name !== 'id' && (
-                          <li className="contact__inputs-item">
+                          <li key={name} className="contact__inputs-item">
                           <div className="contact__item-name">
                             {name}
                           </div>
@@ -74,6 +74,7 @@ const Home = () => {
         </ul>
         </div>
         {modal && (<Modal id={currentId} modal={setModal}/> )}
+        {greetingModal && !contactList.length && (<ModalGreeting greetingModal={setGreetingModal}/>)}
       </div>
     </>
   )

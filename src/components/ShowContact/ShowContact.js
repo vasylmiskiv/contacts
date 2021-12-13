@@ -11,7 +11,7 @@ const ShowContact = () => {
   const {id} = useParams();
 
   useEffect(() => {
-      setCurrentContact(contactList.find(contact => contact.id === id))
+      setCurrentContact(contactList.find(contact => contact.id === id));
   }, [contactList, id])
 
   return (

@@ -8,14 +8,14 @@ const dispatch = useDispatch();
 
 const deleteContact = () => {
   try {
-    dispatch({type: 'DELETE_CONTACT', payload: id})
-    modal(false)
+    dispatch({type: 'DELETE_CONTACT', payload: id});
+    modal(false);
   } catch(err) {
-    console.log(err)
+    console.log(err);
   }
 }
 
-const handleClose = e => e.target.classList.contains('modal') && modal(false)
+const handleClose = e => e.target.classList.contains('modal') && modal(false);
 
   return (
     <div className="modal" onClick={(e) => handleClose(e)}>
@@ -40,4 +40,4 @@ const handleClose = e => e.target.classList.contains('modal') && modal(false)
   )
 }
 
-export default Modal
+export default Modal;
