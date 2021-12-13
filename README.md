@@ -1,5 +1,5 @@
 # Contacts SPA
-- [https://sgw8.github.io/contacts/]
+- [Contacts app](https://sgw8.github.io/contacts/)
 
 ## Description
 Project was developed via:
