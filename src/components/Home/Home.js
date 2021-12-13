@@ -3,18 +3,16 @@ import { Link } from 'react-router-dom';
 import './Home.scss';
 import { useSelector } from 'react-redux';
 import Modal from '../../modals/ModalDeleteContact/ModalDeleteContact'
-import ModalGreeting from '../../modals/ModalGreeting/ModalGreeting';
 
 import { faEdit, faTrash, faPlus, faIdCard } from '@fortawesome/fontawesome-free-solid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Home = () => {
   const [modal, setModal] = useState(false);
-  const [greetingModal, setGreetingModal] = useState(true)
   const [currentId, setCurrentId] = useState('')
 
   const contactList = useSelector(state => state);
-  
+
   return (
     <>
       <Link to="/add">
@@ -24,7 +22,7 @@ const Home = () => {
       </Link>
       <div className="container">
         <div className="contact">
-        <h1>CONTACTS</h1>
+        <h1 className='contact_article'>CONTACTS</h1>
         <ul className="contact__list">
           {contactList.length ? contactList.map(contact => (
             Object.keys(contact).length > 1 && (
@@ -74,7 +72,6 @@ const Home = () => {
         </ul>
         </div>
         {modal && (<Modal id={currentId} modal={setModal}/> )}
-        {greetingModal && !contactList.length && (<ModalGreeting greetingModal={setGreetingModal}/>)}
       </div>
     </>
   )

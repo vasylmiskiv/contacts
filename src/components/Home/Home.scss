@@ -7,7 +7,7 @@
   font-size: 16px;
   position: absolute;
   top: 70px;
-  right: 400px;
+  right: 409px;
   border: 1px solid #c0c0c0;
   text-decoration: none;
   padding: 10px;
@@ -22,16 +22,17 @@
 }
 
 .contact {
-  margin-top: 80px;
+  margin-top: 27px;
 
   &__list {
     list-style-type: none;
     padding-left: 0;
+
   }
 
   &__item {
     display: inline-block;
-    border-radius: 5px;
+
     background-color: #79eeda80;
     cursor: pointer;
     margin-top: 5px;

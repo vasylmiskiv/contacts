@@ -78,7 +78,9 @@ const AddInputs = () => {
               </label>
             </div>
 
-            <button type= "submit" className="add-inputs__submit">
+            <button 
+              type= "submit" 
+              className={nameOfTheInput && valueOfTheInput ? "add-inputs__submit" : "add-inputs__submit add-inputs__submit-off"}>
                 Add to contact
             </button>
           </form>

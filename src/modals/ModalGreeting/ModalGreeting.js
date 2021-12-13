@@ -1,7 +1,7 @@
 import React from 'react'
 import './ModalGreeting.scss'
 
-const ModalGreeting = ({greetingModal}) => {
+const ModalGreeting = ({ greetingModal }) => {
 
     return (
 			<div className='greeting-modal'>

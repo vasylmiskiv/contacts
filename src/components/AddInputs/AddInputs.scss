@@ -70,11 +70,15 @@
       padding: 10px 30px;
       border-radius: 5px;
       outline: none;
-      background-color: #79eeda7a;
+      background-color: #79eeda;
       cursor: pointer;
       transition: 0.3s;
-      &:hover {
-        background-color: #79eeda;
+
+      &-off {
+        background-color: #79eeda7a;
+        cursor: not-allowed;
       }
+
+      
     }
 }
