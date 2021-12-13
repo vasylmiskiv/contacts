@@ -25,7 +25,7 @@ const AddContact = () => {
         type:'ADD_CONTACT',
         payload: dataForDispatch
       })
-      history.push('/')
+      history.push('/contacts')
     } catch (err) {
       console.log(err)
     }

@@ -38,7 +38,7 @@ const EditContact = () => {
   const submitInputs = (e) => {
     e.preventDefault();
     dispatch({type: 'UPDATE_CONTACT_INPUT', payload: currentContact});
-    history.push('/');
+    history.push('/contacts');
   }
 
   const changeInput = (e) => {
@@ -110,7 +110,7 @@ const EditContact = () => {
               <button
                 type= "button" 
                 className="edit-contact__button edit-contact__button-cancel"
-                onClick={() => history.push('/')}
+                onClick={() => history.push('/contacts')}
                 >
                 Cancel
               </button>
